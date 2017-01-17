@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function properties() {
+        return $this->hasMany('App\UserProperties');
+    }
+
+    public function accessable_pubs() {
+        return $this->hasMany('App\User2Pub');
+    }
 }
