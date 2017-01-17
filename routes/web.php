@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $test = App\BossConsume::all();
+    var_dump($test);
+    //return view('welcome');
 });
