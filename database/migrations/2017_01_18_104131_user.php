@@ -12,10 +12,12 @@ class User extends Migration
         Schema::create('user', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('email')->unique();
             $table->string('password');
-            $table->integer('tether');
+            $table->integer('tether')->default(0);
             $table->boolean('active')->default(true);
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 

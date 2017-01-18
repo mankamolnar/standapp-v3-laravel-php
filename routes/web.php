@@ -132,3 +132,7 @@ Route::get('/szulinapos/meghivas', function() {
 Route::get('/szulinapos/ellenorzes', function() {
     //
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
