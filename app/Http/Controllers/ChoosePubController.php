@@ -26,4 +26,11 @@ class ChoosePubController extends Controller
         return view('choose_pub', array('accessable_pubs' => $accessable_pubs, 'CSS' => $CSS));
         
     }
+
+    public function change_pub(Request $request) {
+        $requests = $request->all();
+        Auth::user()->update_current_pub($request['pub']);
+        return app('App\Http\Controllers\IndexController')->index();
+
+    }
 }

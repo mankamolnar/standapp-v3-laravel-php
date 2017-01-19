@@ -23,11 +23,11 @@ class User extends Authenticatable
     }
 
     public function check_current_pub() {
-        return $current_pub;
+        return $this->current_pub;
     }
 
-    public function update_current_pub() {
-        return True;
+    public function update_current_pub($id) {
+        $this->current_pub = $id;
     }
 
     public function generate_menu() {

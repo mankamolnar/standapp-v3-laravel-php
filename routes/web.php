@@ -100,9 +100,8 @@ Route::get('/kocsmak/modositas', function() {
 });
 
 // !!! KOCSMA VALTAS !!!
-Route::get('/kocsma-valtas', function() {
-    //
-});
+Route::get('/kocsma-valtas', 'ChoosePubController@index');
+Route::post('/kocsma-valtas', 'ChoosePubController@change_pub');
 
 // !!! STATISZTIKA !!!
 Route::get('/statisztika', function() {

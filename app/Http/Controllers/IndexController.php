@@ -28,7 +28,8 @@ class IndexController extends Controller
     {
         $CSS = new CSSloader();
         $user = Auth::user();
-        if ($user->current_pub != false) {
+
+        if ($user->check_current_pub() != false) {
             return view('index', array("CSS" => $CSS));
 
         } else {

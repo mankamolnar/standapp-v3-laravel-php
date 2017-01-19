@@ -3,8 +3,9 @@
 @section('content')
 <div id='content'>	
 
-    <form action="index.php?page=main" method="post">
+    <form action="/kocsma-valtas" method="post">
         <input type="hidden" name="pselect" value="TRUE">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <select name="pub" id="pubselect">
             @foreach($accessable_pubs as $pub)
@@ -14,6 +15,6 @@
 
         <input type="submit" value="Kiválaszt!">
     </form>
-    
+
 </div>
 @endsection
