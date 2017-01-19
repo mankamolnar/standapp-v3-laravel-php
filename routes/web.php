@@ -1,9 +1,16 @@
 <?php
 
-// !!! HOME !!!
-Route::get('/', function () {
-    return view('index');
+// !!! AUTH ROUTES
+Auth::routes();
+Route::any('/register', 'IndexController@index');
+
+// !!! TEST OLD APP
+Route::get("/old-test", function () {
+    return view('welcome');
 });
+
+// !!! HOME !!!
+Route::get('/', 'IndexController@index');
 
 // !!! STAND !!!
 Route::get('/stand/uj', function() {
@@ -133,6 +140,6 @@ Route::get('/szulinapos/ellenorzes', function() {
     //
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+Route::get('/logout', function () {
+    Auth::logout();
+});

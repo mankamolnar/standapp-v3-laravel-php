@@ -273,12 +273,14 @@ a.anchor {
 	z-index: 0;
 }
 
-.welcome {
-	font-family: "Freeroad";
-	font-size:25px;
-	text-shadow: 3px 3px #CCC;
-	margin:0px;
-	padding:0px;
+.title {
+	color: #636b6f;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	margin: 0;
+	margin-bottom:30px;
+	text-align:center;
+	font-size: 84px;
 }
 
 table {

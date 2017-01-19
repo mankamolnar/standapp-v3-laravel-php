@@ -179,10 +179,10 @@
 }
 
 .sorTd {
-	postion:relative;
+	position:relative;
 	float:left;
 	
-	text-size:15px;
+	font-size:15px;
 	text-transform:uppercase;
 	font-family:verdana;
 	font-weight:bold;
@@ -191,7 +191,7 @@
 	width:12%;
 }
 
-input[type="text"] {
+input[type="text"].itallapInput {
 	width:90%;
 }
 

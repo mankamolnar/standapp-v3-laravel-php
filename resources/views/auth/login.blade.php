@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.html_frame_auth')
 
 @section('content')
+<div class="title m-b-md">{{ config('app.name', 'Laravel') }}</div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

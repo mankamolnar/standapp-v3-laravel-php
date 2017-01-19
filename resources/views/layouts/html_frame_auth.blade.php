@@ -12,7 +12,8 @@
 
         <!-- Styles -->
         <link href="/css/app.css" rel="stylesheet">
-        {{ $CSS->render_css_links("all") }}
+        <link href="/css/standards.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
         
 
         <!-- Scripts -->
