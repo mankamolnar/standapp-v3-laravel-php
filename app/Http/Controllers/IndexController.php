@@ -5,32 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\CSSloader;
+use App\UIelements;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
+    public $UIelements;
+    public $CSS;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->UIelements = new UIelements();
+        $this->CSS = new CSSloader();
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $CSS = new CSSloader();
-        $user = Auth::user();
 
-        if ($user->check_current_pub() != false) {
-            return view('index', array("CSS" => $CSS));
+        if (session('current_pub') !== null) {
+            return view('index', array("CSS" => $this->CSS, "UIelements" => $this->UIelements));
 
         } else {
             return app('App\Http\Controllers\ChoosePubController')->index();

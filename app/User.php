@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
+use App\Pub;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -12,7 +15,8 @@ class User extends Authenticatable
     protected $table = "user";
     protected $fillable = ['name', 'email', 'password',];
     protected $hidden = ['password', 'remember_token',];
-    protected $current_pub = false;
+    public $current_pub = false;
+    public $attributes;
 
     public function properties() {
         return $this->hasMany('App\UserProperties');
@@ -22,15 +26,16 @@ class User extends Authenticatable
         return $this->hasMany('App\User2Pub');
     }
 
-    public function check_current_pub() {
-        return $this->current_pub;
+    public static function _accessable_pubs() {
+        $user = Auth::user();
+        //var_dump($user->accessable_pubs);
+        $accessable_pubs = array();
+
+        foreach ($user->accessable_pubs as $pub) {
+            $accessable_pubs[] = $pub;
+        }
+        return $accessable_pubs;
     }
 
-    public function update_current_pub($id) {
-        $this->current_pub = $id;
-    }
 
-    public function generate_menu() {
-        
-    }
 }

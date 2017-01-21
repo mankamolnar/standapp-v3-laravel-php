@@ -139,6 +139,4 @@ Route::get('/szulinapos/ellenorzes', function() {
     //
 });
 
-Route::get('/logout', function () {
-    Auth::logout();
-});
+Route::get('/logout', 'LogoutController@logout');

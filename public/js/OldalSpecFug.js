@@ -1993,7 +1993,7 @@ $(document).ready(function() {
 	if ($("#MenuFooldal").length == 1) {
 
 		$("#MenuFooldal").click(function () {
-			window.location = "index.php";
+			window.location = "/";
 		});
 		
 	}
@@ -2101,7 +2101,7 @@ $(document).ready(function() {
 	if ($("#MenuLogout").length == 1) {
 
 		$("#MenuLogout").click(function () {
-			window.location = "index.php?page=logout";
+			window.location = "/logout";
 		});
 		
 	}
