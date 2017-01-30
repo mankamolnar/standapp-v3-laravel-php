@@ -14,8 +14,8 @@ class ExtraStockValues extends Migration
             $table->integer('drink_id')->unsigned();
             $table->integer('extra_stock_id')->unsigned();
             $table->float('opened_with', 8, 2);
-            $table->float('bought');
             $table->float('closed_with');
+            $table->float('yield');
             $table->integer('price');
 
             $table->foreign('stock_id')->references('id')->on('stock_header');

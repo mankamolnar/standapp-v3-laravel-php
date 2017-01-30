@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class StockHeader extends Model
 {
     protected $table = "stock_header";
+    public $attributes;
 
     public function discounted_drinks() {
         return $this->hasMany('App\DiscountedStock');

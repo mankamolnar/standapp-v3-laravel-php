@@ -101,6 +101,81 @@ class UIelements
         return $str;
     }
 
+    public function render_main_menu() {
+        //FOOTAGE
+		$foot = "Online standoló alkalmazás v3.0 ALFA;";
+		$current_pub = Pub::find(session('current_pub'));
+        $pubOpitons = $current_pub->get_options();
+
+        $str = "<hr />";
+		
+		//volt-e felvitt stand
+		$volteStand =  $current_pub->has_unfinished_stock();
+		
+		//(FIX MENÜ RÉSZ MINDENKINEK!)
+		//ha van nem befejezett standod
+		if ($volteStand) {
+
+            $unfinished_stock = $current_pub->get_unfinished_stock();
+			
+			if ($unfinished_stock->attributes['user_id'] == Auth::user()->attributes['id']) {
+				$str = $str."<b>Még van be nem fejezett standod!</b><br /><a href='index.php?page=3&id=".$unfinished_stock->attributes['id']."&mod=0' class='anchor2'>".$unfinished_stock->attributes['date']."</a><br /><br />
+							 <a href='index.php?page=25&id=".$unfinished_stock->attributes['id']."' class='anchor2'>stand átadása</a> <br />";
+			} else {
+				$str = $str."<b>Nem lehet új standot kezdeni, amíg az előző nincs lezárva!</b><br /><br />";
+				
+				//stand forced close
+				$tmpDate = $unfinished_stock;
+				$tmpDate = explode("-", $tmpDate);
+				
+				if ($tmpDate[1] < date("m") || $tmpDate[2] < date("d")) {
+					$str = $str."<a href='index.php?page=3&id=".$unfinished_stock->attributes['id']."&mod=0&forceclose=1' class='anchor2'>Stand lezárás</a><br />";
+				}
+			}
+		}
+		
+		//ALKALMAZOTTÓL FELFELE: dashstat
+		if (Auth::user()->attributes['tether'] > 0) {
+			
+			//likemywifi ha van
+            $lmwresult = false;
+			if (isset($pubOpitons['likemywifi']) && $pubOptions['likemywifi'] == "1") {
+				$lmwresult = $pubOptions['likemywifiID'];
+				
+			}
+			
+			//ha plusz raktár be van kapcsolva akkor a dashstat nem tölt be.
+			if (isset($pubOptions['pluszRaktar']) && $pubOpitons['pluszRaktar'] != "1") {
+				//include_once("php/dashstat.php");
+				//$str .= dashstat($kapcsolat);
+
+			}
+			
+			//likemywifi ha van
+			if (is_array($lmwresult)) {
+				
+				//szülinapok lekérése
+				//include_once("php/dash-birthday.php");
+				//$str .= dashBirthday($lmwresult['value']);
+
+			}
+		
+		//ALKALMAZOTT!
+		} else {
+			
+			//ha nem volt félkész stand, új felvitele
+			if ($volteStand == false) {
+				
+				$str = $str.'<a href="index.php?page=1" class="anchor2">Új elszámolás felvitele</a> <br />';
+				
+			}
+			
+		}
+		
+        $str .= '<a href="/logout" class="anchor2">Kijelentkezés</a><br /><hr />';
+		return $str.$foot;
+    }
+
     public function drop_elements() {
         $this->elements = array();
     }

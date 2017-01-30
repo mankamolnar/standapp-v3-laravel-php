@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\CSSloader;
 use App\UIelements;
+use App\Pub;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
@@ -25,7 +26,12 @@ class IndexController extends Controller
     {
 
         if (session('current_pub') !== null) {
-            return view('index', array("CSS" => $this->CSS, "UIelements" => $this->UIelements));
+            return view('index', array(
+                "CSS" => $this->CSS, 
+                "UIelements" => $this->UIelements, 
+                "user" => Auth::user(),
+                "pub" => Pub::find(session("current_pub"))
+            ));
 
         } else {
             return app('App\Http\Controllers\ChoosePubController')->index();

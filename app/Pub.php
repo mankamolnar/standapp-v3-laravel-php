@@ -32,6 +32,13 @@ class Pub extends Model
         }
     }
 
+    public function get_unfinished_stock() {
+        $unfinished_stocks = StockHeader::where('finished', 'LIKE', '0')->where('pub_id', 'LIKE', $this->attributes['id'])->get();
+        foreach ($unfinished_stocks as $stock) {
+            return $stock;
+        }
+    }
+
     public function get_options() {
         $options = array();
         foreach ($this->options as $option) {
