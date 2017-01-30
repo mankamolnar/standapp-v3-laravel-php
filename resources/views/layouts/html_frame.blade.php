@@ -23,6 +23,12 @@
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src='/js/OldalSpecFug.js?1484763531' type='text/javascript'></script>
+        <link href="/plugins/sunny/jquery-ui-1.10.1.custom.css" rel="stylesheet">
+        <script src="/plugins/jquery-ui-1.10.1.custom.js?1485797089" type="text/javascript"></script>
+        <script src="/plugins/hu/jquery.ui.datepicker-hu.js?1485797089" type="text/javascript"></script>
+        
+        <script src="/js/md5.js?1485797089" type="text/javascript"></script>
+        <script src="/js/felhaszKocsModul.js?1485797089" type="text/javascript"></script>
 
     </head>
     <body class='signo'>

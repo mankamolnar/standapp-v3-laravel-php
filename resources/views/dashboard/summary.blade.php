@@ -97,7 +97,7 @@
 			</td>
 			
 			<td class="td1">
-				<span id="havifizetesspan">0 Ft <a href="?page=20"><img src="http://1.1.1.3/bmi/s2.standapp.hu/img/newItallap.png" width="25" height="25"></a></span>
+				<span id="havifizetesspan">0 Ft <a href="?page=20"><img src="/img/newItallap.png" width="25" height="25"></a></span>
 			</td>
 			
 			<td class="td3">

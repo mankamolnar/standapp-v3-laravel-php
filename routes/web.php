@@ -73,9 +73,7 @@ Route::get('/itallap/napi-akcio/torles', function() {
 });
 
 // !!! FELHASZNALO !!!
-Route::get('/felhasznalo/megtekintes', function() {
-    //
-});
+Route::get('/felhasznalo/megtekintes', 'UsersController@index');
 
 Route::get('/felhasznalo/modositas', function() {
     //

@@ -1,5 +1,5 @@
 //Oldalspecifikus függvények; INDEXEN NE FUSSON
-if (document.URL.indexOf("?") != -1) {
+if (document.URL.split("/").length > 4) {
 	
 	//newfocus
 	function newFocus(ttype, ssor, ooszlop, ppline) {
@@ -244,7 +244,7 @@ if (document.URL.indexOf("?") != -1) {
 	}
 	
 	//Kocsma beállítások
-	if (document.URL.split("?")[1].split("=")[1].split("&")[0] == "28") {
+	/*if (document.URL.split("?")[1].split("=")[1].split("&")[0] == "28") {
 		
 		
 		$(document).ready(function() {
@@ -379,10 +379,10 @@ if (document.URL.indexOf("?") != -1) {
 			
 		});
 		
-	}
+	}*/
 	
 	//Felhasználó kezeléskor datepickerek & jelszavak változóba
-	if (document.URL.split("?")[1].split("=")[1].split("&")[0] == "9") {
+	if (document.URL.split("/")[3] == "felhasznalo" && document.URL.split("/")[4] == "megtekintes") {
 		
 		var passes = new Array();
 		$(document).ready(function() {
@@ -451,7 +451,7 @@ if (document.URL.indexOf("?") != -1) {
 		});
 	}
 	
-	//kocsma kezeléskor jelszavak változóba
+	/*//kocsma kezeléskor jelszavak változóba
 	if (document.URL.split("?")[1].split("=")[1].split("&")[0] == "13") {
 		var passes = new Array();
 		$(document).ready(function() {
@@ -649,7 +649,7 @@ if (document.URL.indexOf("?") != -1) {
 								responsive : true
 							});
 						}
-						
+						*/
 						/*//json for the chart plugin
 						var chartAdatok = {
 							labels : names,
@@ -676,7 +676,7 @@ if (document.URL.indexOf("?") != -1) {
 								data: chartAdatok
 							});
 
-						}*/
+						}*//*
 
 					} else {
 
@@ -1838,7 +1838,7 @@ if (document.URL.indexOf("?") != -1) {
 			
 		}
 		
-	}
+	}*/
 
 //INDEXEN FUSSON	
 } else {
@@ -2002,7 +2002,7 @@ $(document).ready(function() {
 	if ($("#MenuStand").length == 1) {
 
 		$("#MenuStand").click(function () {
-			window.location = "index.php?page=1";
+			window.location = "/stand/uj";
 		});
 		
 	}
@@ -2011,7 +2011,7 @@ $(document).ready(function() {
 	if ($("#MenuBirthday").length == 1) {
 
 		$("#MenuBirthday").click(function () {
-			window.location = "index.php?page=31";
+			window.location = "/szulinapos/ellenorzes";
 		});
 		
 	}
@@ -2020,7 +2020,7 @@ $(document).ready(function() {
 	if ($("#MenuSearch").length == 1) {
 
 		$("#MenuSearch").click(function () {
-			window.location = "index.php?page=4";
+			window.location = "/kereso";
 		});
 		
 	}
@@ -2029,7 +2029,7 @@ $(document).ready(function() {
 	if ($("#MenuFelh").length == 1) {
 
 		$("#MenuFelh").click(function () {
-			window.location = "index.php?page=9";
+			window.location = "/felhasznalo/megtekintes";
 		});
 		
 	}
@@ -2038,7 +2038,7 @@ $(document).ready(function() {
 	if ($("#MenuKocsmaBeall").length == 1) {
 
 		$("#MenuKocsmaBeall").click(function () {
-			window.location = "index.php?page=28";
+			window.location = "/kocsma-beallitasok";
 		});
 		
 	}
@@ -2047,7 +2047,7 @@ $(document).ready(function() {
 	if ($("#MenuSorsjegy").length == 1) {
 
 		$("#MenuSorsjegy").click(function () {
-			window.location = "index.php?page=29";
+			window.location = "/kocsma-beallitasok/sorsjegy-beallitas";
 		});
 		
 	}
@@ -2056,7 +2056,7 @@ $(document).ready(function() {
 	if ($("#MenuItal").length == 1) {
 
 		$("#MenuItal").click(function () {
-			window.location = "index.php?page=6";
+			window.location = "/itallap";
 		});
 		
 	}
@@ -2065,7 +2065,7 @@ $(document).ready(function() {
 	if ($("#MenuKocsma").length == 1) {
 
 		$("#MenuKocsma").click(function () {
-			window.location = "index.php?page=13";
+			window.location = "/kocsmak";
 		});
 		
 	}
@@ -2074,7 +2074,7 @@ $(document).ready(function() {
 	if ($("#MenuStat").length == 1) {
 
 		$("#MenuStat").click(function () {
-			window.location = "index.php?page=16";
+			window.location = "/statisztika";
 		});
 		
 	}
@@ -2083,7 +2083,7 @@ $(document).ready(function() {
 	if ($("#MenuUp").length == 1) {
 
 		$("#MenuUp").click(function () {
-			window.location = "index.php?page=17";
+			window.location = "/itallap/csv-feltoltes";
 		});
 		
 	}
@@ -2092,7 +2092,7 @@ $(document).ready(function() {
 	if ($("#MenuSettings").length == 1) {
 
 		$("#MenuSettings").click(function () {
-			window.location = "index.php?page=19";
+			window.location = "/szemelyes-beallitasok";
 		});
 		
 	}
@@ -2130,7 +2130,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_fooldal.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuFooldal").position().left - 50 + 17)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_fooldal.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuFooldal").position().left - 50 + 17)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 				
 			
@@ -2156,7 +2156,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_ujstand.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuStand").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_ujstand.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuStand").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2182,7 +2182,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_birthday.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuBirthday").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_birthday.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuBirthday").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2208,7 +2208,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_kereses.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuSearch").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_kereses.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuSearch").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2234,7 +2234,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_felhaszn.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuFelh").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_felhaszn.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuFelh").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2260,7 +2260,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_statisztika.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuStat").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_statisztika.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuStat").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2286,7 +2286,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_itallap.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuItal").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_itallap.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuItal").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2312,7 +2312,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_kocsma.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuKocsma").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_kocsma.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuKocsma").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2338,7 +2338,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_kocsmaBeall.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuKocsmaBeall").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_kocsmaBeall.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuKocsmaBeall").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2364,7 +2364,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_import.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuUp").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_import.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuUp").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2390,7 +2390,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_szemelyes.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuSettings").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_szemelyes.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuSettings").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2416,7 +2416,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_sorsjegy.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuSorsjegy").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_sorsjegy.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuSorsjegy").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
@@ -2442,7 +2442,7 @@ $(document).ready(function() {
 				
 				var menuLeft = getMenuLeft();
 				
-				var style = "position:absolute;background-image:url(img/label_kijelentkezes.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuLogout").position().left - 50 + 27)+"px;";
+				var style = "position:absolute;background-image:url(/img/label_kijelentkezes.png);width:100px;height:50px;top:40px;left:"+(menuLeft + $("#MenuLogout").position().left - 50 + 27)+"px;";
 				$(".signo").append("<div style='"+style+"' id='label'></div>");
 			
 			}
