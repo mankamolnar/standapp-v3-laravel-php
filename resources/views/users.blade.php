@@ -4,13 +4,13 @@
 <div id='content'>
     <?php $i = 0; ?>
     @foreach ($users as $user)
-        <input type='hidden' name='id[{{ $i }}]' value='{{ $user->id }}' />
-        <input type='hidden' name='uname[{{ $i }}]' value='{{ $user->name }}' />
-        @foreach ($user->properties as $property)
+        <input type='hidden' name='id[{{ $i }}]' value='{{ $user->user->id }}' />
+        <input type='hidden' name='uname[{{ $i }}]' value='{{ $user->user->name }}' />
+        @foreach ($user->user->properties as $property)
             <input type='hidden' name='{{ $property->property }}[{{ $i }}]' value='{{ $property->value }}' />
         @endforeach
-        <input type='hidden' name='pass[{{ $i }}]' value='{{ $user->password }}' />
-        <input type='hidden' name='tether[{{ $i }}]' value='{{ $user->tether }}' />
+        <input type='hidden' name='pass[{{ $i }}]' value='{{ $user->user->password }}' />
+        <input type='hidden' name='tether[{{ $i }}]' value='{{ $user->user->tether }}' />
         <?php $i++; ?>
     @endforeach
 
@@ -18,7 +18,7 @@
     <div id='baloldal'>
         <?php $i = 0; ?>
         @foreach ($users as $user)
-            <span class='kezeloA' id='i{{ $i }}'>{{ $user->name }}</span><br />
+            <span class='kezeloA' id='i{{ $i }}'>{{ $user->user->name }}</span><br />
             <?php $i++; ?>
         @endforeach
 
@@ -95,4 +95,5 @@
     </div>
 
 </div>
+@include("users.user2pub_table");
 @endsection

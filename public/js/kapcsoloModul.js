@@ -10,7 +10,7 @@ $(function() {
 		$('#kapcsolotable').html('');
 		for(var i=0;i<pubs.length;i++) {
 			var temp = i;
-			//alert(temp);
+			alert(temp);
 			$('#kapcsolotable').append('<div class="pubrow"><span class="pubname" pub="'+pubs[i].ID+'">'+pubs[i].name+'&ensp;</span><span class="operation"></span></div>');
 			$.ajax({
 				type: 'POST',

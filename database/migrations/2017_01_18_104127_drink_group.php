@@ -11,7 +11,7 @@ class DrinkGroup extends Migration
     {
         Schema::create("drink_group", function (Blueprint $table) {
             $table->increments('id');
-            $table->string('group')->unique();
+            $table->string('name')->unique();
         });
     }
 

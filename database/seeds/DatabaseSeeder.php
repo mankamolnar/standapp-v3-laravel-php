@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PubSeeder::class);
         $this->call(User2PubSeeder::class);
         $this->call(UserPropertiesSeeder::class);
+        $this->call(DrinkGroupSeeder::class);
+        $this->call(DrinksSeeder::class);
     }
 }

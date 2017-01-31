@@ -43,9 +43,7 @@ Route::get('/kereso', function() {
 });
 
 // !!! ITALLAP !!!
-Route::get('/itallap', function() {
-    //
-});
+Route::get('/itallap', "DrinksController@index");
 
 Route::get('/itallap/modositas', function() {
     //
